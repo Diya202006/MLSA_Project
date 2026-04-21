@@ -1,0 +1,253 @@
+ /* 
+Design a modern UI for the "Ultimate Quiz Game".
+
+Requirements:
+
+General:
+- Center all content vertically and horizontally
+- Use a soft gradient background
+- Use clean font (Arial or sans-serif)
+
+Container:
+- Card-style design
+- Rounded corners
+- Box shadow for depth
+- Padding and spacing
+
+Buttons:
+- Stylish buttons with hover effects
+- Smooth transitions
+- Rounded edges
+- Different colors for:
+  - Normal
+  - Hover
+  - Correct (green)
+  - Wrong (red)
+
+Text:
+- Heading large and centered
+- Question text readable and spaced
+
+Timer:
+- Highlight timer (red or bold)
+
+Score:
+- Display clearly
+
+Leaderboard:
+- Clean list style
+- Spaced items
+
+Responsive:
+- Mobile-friendly layout
+- Adjust font and spacing
+
+Extra:
+- Add small animations (fade, scale)
+- Keep design neat and consistent
+
+Make CSS structured and beginner-friendly.
+*/
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Start Screen */
+#player-name {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.difficulty-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.difficulty-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1em;
+}
+
+.difficulty-btn:hover, .difficulty-btn:focus {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    outline: none;
+}
+
+#start-quiz {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1.1em;
+}
+
+#start-quiz:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Quiz Container */
+#question-text {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.option-btn {
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1em;
+}
+
+.option-btn:hover {
+    background-color: #e9ecef;
+    transform: scale(1.02);
+}
+
+.option-btn.correct {
+    background-color: #28a745;
+    color: white;
+}
+
+.option-btn.wrong {
+    background-color: #dc3545;
+    color: white;
+}
+
+#timer {
+    font-size: 1.2em;
+    color: #dc3545;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#score {
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* Result Screen */
+#final-score {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#result-message {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+#restart-quiz {
+    background-color: #ffc107;
+    color: #333;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1.1em;
+}
+
+#restart-quiz:hover {
+    background-color: #e0a800;
+    transform: scale(1.05);
+}
+
+/* Leaderboard */
+#leaderboard h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#leaderboard-list {
+    list-style: none;
+    padding: 0;
+}
+
+#leaderboard-list li {
+    background: #f8f9fa;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+    .card {
+        padding: 20px;
+        max-width: 90%;
+    }
+    #options {
+        grid-template-columns: 1fr;
+    }
+    .difficulty-buttons {
+        flex-direction: column;
+    }
+}
