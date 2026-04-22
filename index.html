@@ -10,8 +10,8 @@
 /* Page styling */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0a0a0f;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0a0a0f, #121826);
     color: white;
     display: flex;
     justify-content: center;
@@ -27,29 +27,71 @@ body {
 /* Title */
 h1 {
     color: #00ff88;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
 }
 
-/* Card buttons */
+/* Cards layout */
+.cards {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Card */
 .card {
-    background: #0f1220;
-    padding: 20px;
-    margin: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px #00ff88;
-    cursor: pointer;
+    position: relative;
+    width: 230px;
+    padding: 25px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    text-align: center;
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+/* Neon border effect */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 15px;
+    padding: 1.5px;
+    background: linear-gradient(45deg, #00ff88, #00c6ff, #ff00c8);
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    pointer-events: none; /* important */
+}
+
+/* Hover effect */
+.card:hover {
+    transform: translateY(-8px) scale(1.05);
+}
+
+/* Button style link */
+.card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #00ff88, #00c6ff);
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
     transition: 0.3s;
 }
 
-.card:hover {
-    transform: scale(1.05);
-}
-
-/* Links */
-a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
+/* Button hover */
+.card a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #00ff88;
 }
 
 </style>
@@ -59,7 +101,7 @@ a {
 
 <div class="container">
 
-<h1>🚀 My Projects</h1>
+<h1>My Projects</h1>
 
 <!-- Contact Book -->
 <div class="card">
@@ -68,7 +110,7 @@ a {
 
 <!-- Password Generator -->
 <div class="card">
-    <a href="Calculator-Pro.html>Calculator Pro</a>
+    <a href="Calculator-Pro.html">Calculator Pro</a>
 </div>
 
 </div>
