@@ -22,7 +22,6 @@ body {
 h1 {
     font-size: 2.8rem;
     margin-bottom: 40px;
-    letter-spacing: 1px;
 }
 
 /* Container */
@@ -44,10 +43,9 @@ h1 {
     text-align: center;
     transition: all 0.3s ease;
     position: relative;
-    overflow: hidden;
 }
 
-/* Subtle gradient border */
+/* Glow border */
 .card::before {
     content: "";
     position: absolute;
@@ -62,17 +60,17 @@ h1 {
     mask-composite: exclude;
 }
 
-/* Hover effect */
+/* Hover */
 .card:hover {
-    transform: translateY(-8px) scale(1.03);
+    transform: translateY(-10px) scale(1.04);
 }
 
-/* Title inside card */
+/* Title */
 .card h2 {
     margin-bottom: 10px;
 }
 
-/* Description */
+/* Text */
 .card p {
     font-size: 0.9rem;
     opacity: 0.75;
@@ -80,21 +78,22 @@ h1 {
 }
 
 /* Button */
-.card a {
+.btn {
     display: inline-block;
-    text-decoration: none;
     padding: 12px 22px;
     border-radius: 8px;
     background: linear-gradient(45deg, #00c6ff, #0072ff);
     color: white;
+    text-decoration: none;
     font-size: 0.95rem;
     transition: 0.3s;
+    box-shadow: 0 0 10px rgba(0,198,255,0.7);
 }
 
 /* Button hover */
-.card a:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 15px rgba(0,198,255,0.8);
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0,198,255,1);
 }
 
 /* Responsive */
@@ -111,18 +110,20 @@ h1 {
 
 <body>
 
-<div class="buttons">
-    
-    <div class="project">
-        <button onclick="location.href='Calculator-Pro.html'">
-            🧮 Open Calculator
-        </button>
+<h1>🚀 My Projects</h1>
+
+<div class="container">
+
+    <div class="card">
+        <h2>🧮 Calculator</h2>
+        <!-- <p>Perform fast and accurate calculations</p> -->
+        <a href="Calculator-Pro.html" class="btn">Open</a>
     </div>
 
-    <div class="project">
-        <button onclick="location.href='QuizGame.html'">
-            🎮 Play Quiz Game
-        </button>
+    <div class="card">
+        <h2>🎮 Quiz Game</h2>
+        <!-- <p>Test your knowledge with fun quizzes</p> -->
+        <a href="QuizGame.html" class="btn">Play</a>
     </div>
 
 </div>
