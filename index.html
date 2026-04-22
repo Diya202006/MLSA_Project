@@ -1,6 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        font-family: 'Arial', sans-serif;
+        color: white;
+    }
+
+    h1 {
+        margin-bottom: 50px;
+        font-size: 3em;
+        letter-spacing: 2px;
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    }
+
+    .buttons {
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .project {
+        position: relative;
+        padding: 30px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        text-align: center;
+        width: 250px;
+        transition: transform 0.3s ease;
+    }
+
+    /* ✨ Shining Border Effect */
+    .project::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 20px;
+        padding: 2px;
+        background: linear-gradient(45deg, #00f5ff, #ff00c8, #00ff88, #00f5ff);
+        background-size: 300% 300%;
+        animation: glow 6s linear infinite;
+        -webkit-mask:
+            linear-gradient(#000 0 0) content-box,
+            linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+                mask-composite: exclude;
+    }
+
+    @keyframes glow {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .project:hover {
+        transform: scale(1.08);
+    }
+
+    button {
+        padding: 15px 25px;
+        font-size: 1.1em;
+        background: linear-gradient(45deg, #00c6ff, #0072ff);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px rgba(0, 198, 255, 0.7);
+        position: relative;
+        z-index: 1;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(0, 198, 255, 1);
+    }
+
+    p {
+        margin-top: 10px;
+        font-size: 0.95em;
+        opacity: 0.8;
+    }
+
+    /* 📱 Responsive */
+    @media (max-width: 600px) {
+        h1 {
+            font-size: 2em;
+        }
+        .project {
+            width: 200px;
+        }
+    }
+</style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>My Projects</title>
@@ -22,6 +131,7 @@ body {
 h1 {
     font-size: 2.8rem;
     margin-bottom: 40px;
+    letter-spacing: 1px;
 }
 
 /* Container */
@@ -43,9 +153,10 @@ h1 {
     text-align: center;
     transition: all 0.3s ease;
     position: relative;
+    overflow: hidden;
 }
 
-/* Glow border */
+/* Subtle gradient border */
 .card::before {
     content: "";
     position: absolute;
@@ -60,17 +171,17 @@ h1 {
     mask-composite: exclude;
 }
 
-/* Hover */
+/* Hover effect */
 .card:hover {
-    transform: translateY(-10px) scale(1.04);
+    transform: translateY(-8px) scale(1.03);
 }
 
-/* Title */
+/* Title inside card */
 .card h2 {
     margin-bottom: 10px;
 }
 
-/* Text */
+/* Description */
 .card p {
     font-size: 0.9rem;
     opacity: 0.75;
@@ -78,22 +189,21 @@ h1 {
 }
 
 /* Button */
-.btn {
+.card a {
     display: inline-block;
+    text-decoration: none;
     padding: 12px 22px;
     border-radius: 8px;
     background: linear-gradient(45deg, #00c6ff, #0072ff);
     color: white;
-    text-decoration: none;
     font-size: 0.95rem;
     transition: 0.3s;
-    box-shadow: 0 0 10px rgba(0,198,255,0.7);
 }
 
 /* Button hover */
-.btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(0,198,255,1);
+.card a:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 15px rgba(0,198,255,0.8);
 }
 
 /* Responsive */
@@ -110,20 +220,147 @@ h1 {
 
 <body>
 
-<h1>🚀 My Projects</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Projects</title>
 
-<div class="container">
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+}
 
-    <div class="card">
-        <h2>🧮 Calculator</h2>
-        <!-- <p>Perform fast and accurate calculations</p> -->
-        <a href="Calculator-Pro.html" class="btn">Open</a>
+/* Title */
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+/* Container */
+.container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Card */
+.card {
+    width: 260px;
+    padding: 25px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle gradient border */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    padding: 1.5px;
+    background: linear-gradient(120deg, #00c6ff, #ff00c8, #00ff88);
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+/* Hover effect */
+.card:hover {
+    transform: translateY(-8px) scale(1.03);
+}
+
+/* Title inside card */
+.card h2 {
+    margin-bottom: 10px;
+}
+
+/* Description */
+.card p {
+    font-size: 0.9rem;
+    opacity: 0.75;
+    margin-bottom: 20px;
+}
+
+/* Button */
+.card a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    color: white;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+/* Button hover */
+.card a:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 15px rgba(0,198,255,0.8);
+}
+.btn {
+    display: inline-block;
+    padding: 14px 25px;
+    font-size: 1em;
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(0, 198, 255, 0.7);
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 198, 255, 1);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+    .card {
+        width: 200px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="buttons">
+    
+    <div class="project">
+        <button onclick="location.href='Calculator-Pro.html'">
+            🧮 Open Calculator
+        </button>
     </div>
 
-    <div class="card">
-        <h2>🎮 Quiz Game</h2>
-        <!-- <p>Test your knowledge with fun quizzes</p> -->
-        <a href="QuizGame.html" class="btn">Play</a>
+    <div class="project">
+        <button onclick="location.href='QuizGame.html'">
+            🎮 Play Quiz Game
+        </button>
     </div>
 
 </div>
